@@ -3,91 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional car and truck detailing services. Dream Detailerz serves Brampton, Mississauga, Kitchener, and surrounding areas.">
     <title>Dream Detailerz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
         }
         header {
             background-color: #333;
-            color: #fff;
+            color: white;
             padding: 10px 20px;
             text-align: center;
         }
-        header nav a {
-            color: #fff;
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
             margin: 0 15px;
             text-decoration: none;
         }
-        .upload-section {
-            padding: 50px 20px;
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
-        .upload-section input[type="file"] {
-            margin: 20px 0;
+        .hero h2 {
+            font-size: 2.5em;
         }
-        .upload-section button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
+        .content {
+            padding: 20px;
         }
-        .upload-section button:hover {
-            background-color: #0056b3;
+        .service, .gallery, .contact {
+            margin-bottom: 30px;
         }
         footer {
             background-color: #333;
-            color: #fff;
+            color: white;
+            padding: 10px;
             text-align: center;
-            padding: 20px;
-            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Dream Detailerz</h1>
+    <header>
+        <h1>Dream Detailerz</h1>
+        <p>Professional Car & Truck Detailing | Call: 416-629-4125</p>
+    </header>
     <nav>
-        <a href="#upload">Upload Work</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact Us</a>
     </nav>
-</header>
-
-<section id="upload" class="upload-section">
-    <h2>Upload Your Work</h2>
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" id="file" name="file" accept="image/*,video/*" multiple>
-        <br>
-        <button type="button" onclick="uploadFile()">Upload</button>
-    </form>
-    <div id="message"></div>
-</section>
-
-<footer>
-    <p>&copy; 2025 Dream Detailerz. All Rights Reserved.</p>
-</footer>
-
-<script>
-    function uploadFile() {
-        const formData = new FormData(document.getElementById('uploadForm'));
-        fetch('/upload', {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('message').innerText = data.message;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('message').innerText = 'Failed to upload. Please try again.';
-        });
-    }
-</script>
-
+    <div class="hero">
+        <h2>Your Car, Your Dream, Our Passion</h2>
+    </div>
+    <div class="content">
+        <section id="services" class="service">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Sedan Detailing (Interior + Exterior): $120</li>
+                <li>Truck Detailing (Interior Only): $140</li>
+                <li>Pickup Truck Detailing (Interior + Exterior): $150</li>
+                <li>Interior Services: Vent Cleaning, Trunk Cleaning, Leather Polish</li>
+                <li>Exterior Services: Tire Shine, Steam Cleaning, Full Polish</li>
+            </ul>
+        </section>
+        <section id="gallery" class="gallery">
+            <h3>Gallery</h3>
+            <p>Before & After Photos:</p>
+            <img src="car1-before.jpg" alt="Before detailing">
+            <img src="car1-after.jpg" alt="After detailing">
+            <img src="car2-before.jpg" alt="Before detailing">
+            <img src="car2-after.jpg" alt="After detailing">
+        </section>
+        <section id="contact" class="contact">
+            <h3>Contact Us</h3>
+            <p>Phone: 416-629-4125</p>
+            <p>Email: info@dreamdetailerz.com</p>
+            <p>Service Areas: Brampton, Etobicoke, Mississauga, Kitchener, Guelph, Cambridge, Milton, Oakville, Orangeville, Burlington, Hamilton</p>
+        </section>
+    </div>
+    <footer>
+        <p>© 2023 Dream Detailerz. All rights reserved.</p>
+    </footer>
 </body>
 </html>
